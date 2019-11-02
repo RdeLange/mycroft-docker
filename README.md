@@ -22,7 +22,9 @@ Run the following to start up mycroft:
 ```bash
 docker run -d \
 -v directory_on_local_machine:/root/.mycroft \
+-v directory_on_local_machine_for_skills:/opt/mycroft/skills \
 -p 8181:8181 \
+-p 6789:6789 \
 --name mycroft-server mycroft
 ```
 
