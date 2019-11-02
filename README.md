@@ -42,7 +42,7 @@ You should now have a running instance of mycroft that you can interact with via
 At any time you can watch the logs simply by running the bellow command:
 
 ```bash
-docker logs -f mycroft
+docker logs -f mycroft-server
 ```
 
 You can exit out of this docker log command by hitting ctrl + c, the `--follow` basically turns it into a real tail instead of a cat of the log.
@@ -51,7 +51,7 @@ You can exit out of this docker log command by hitting ctrl + c, the `--follow` 
 You can interact with the CLI of the container by running the following command, this will connect you to the running container via bash:
 
 ```bash
-docker exec -it mycroft /bin/bash
+docker exec -it mycroft-server /bin/bash
 ```
 
 Once in the container you can do `./start-mycroft.sh cli` to get a interactive CLI to interact with mycroft if needed.
@@ -68,20 +68,20 @@ You can watch the logs and confirm it installs/deletes skills.
 You can install skills into the container from outside by running the following:
 
 ```bash
-docker exec -it mycroft /usr/local/bin/msm install github_url
+docker exec -it mycroft-server /usr/local/bin/msm install github_url
 ```
 
 So to install say my basic-skill helper:
 
 ```bash
-docker exec -it mycroft /opt/mycroft/msm/msm install https://github.com/btotharye/mycroft-skill-basichelp
+docker exec -it mycroft-server /opt/mycroft/msm/msm install https://github.com/btotharye/mycroft-skill-basichelp
 ```
 
 ### Remove
 You can uninstall a skill by removing the folder location for it
 
 ```bash
-docker exec -it mycroft rm -rf /opt/mycroft/skills/mycroft-skill-basichelp
+docker exec -it mycroft-server rm -rf /opt/mycroft/skills/mycroft-skill-basichelp
 ```
 
 This would remove the above test basic help skill.
